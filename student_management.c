@@ -1,8 +1,3 @@
-/* Student Record Management System - C (Arrays, Searching, Sorting)
-   Module 1: Student Registration and Record Storage (add, update, delete)
-   Module 2: Display and Report (table, student-wise, branch-wise, count)
-   Module 3: Searching (linear search by roll no and by name)
-   Module 4: Sorting and Ranking (bubble sort, rank list, topper list) */
 #include <stdio.h>
 #include <string.h>
 
@@ -13,10 +8,9 @@ struct Student {
     float marks;
 };
 
-struct Student s[50];   /* array of students */
-int n = 0;              /* number of students */
+struct Student s[50];
+int n = 0;             
 
-/* ---------- Module 3: linear search by roll no ---------- */
 int findByRoll(int roll) {
     int i;
     for (i = 0; i < n; i++) {
@@ -33,7 +27,6 @@ void printRow(int i) {
     printf("%-8d%-15s%-12s%.2f\n", s[i].roll, s[i].name, s[i].branch, s[i].marks);
 }
 
-/* ---------- Module 1: add, update, delete ---------- */
 void addStudent() {
     int roll;
     if (n == 50) { printf("List is full!\n"); return; }
@@ -84,7 +77,6 @@ void deleteStudent() {
     printf("Record deleted.\n");
 }
 
-/* ---------- Module 2: display and reports ---------- */
 void displayAll() {
     int i;
     if (n == 0) { printf("No records.\n"); return; }
@@ -122,7 +114,6 @@ void branchReport() {
     else printf("\nStudents: %d   Average marks: %.2f\n", count, sum / count);
 }
 
-/* ---------- Module 3: search by name ---------- */
 void searchByName() {
     char name[30];
     int i, found = 0;
@@ -148,8 +139,6 @@ void searchByRoll() {
     printRow(i);
 }
 
-/* ---------- Module 4: sorting and ranking ---------- */
-/* by: 1 = roll no (ascending), 2 = name (A-Z), 3 = marks (highest first) */
 void bubbleSort(int by) {
     int i, j, swap;
     struct Student temp;
